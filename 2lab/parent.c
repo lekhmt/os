@@ -1,3 +1,4 @@
+// Copyright lekhmt 2021
 // Леухин М.В. М8О-206Б-20
 // Вариант 15
 
@@ -9,15 +10,23 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include <stdbool.h>
-
-#define PARENT "[%d] PARENT. "
-#define CHILD  "[%d] CHILD. "
 
 void handle_error(bool expr, char* msg) {
     if (expr) {
-        perror(msg);
+        write(fileno(stdout), msg, strlen(msg) * sizeof(char));
         exit(-1);
+    }
+}
+
+void print_t(char* str, char* msg){
+    char* full_msg = malloc((strlen(str) + strlen(msg)) * sizeof(char));
+    strcat(full_msg, str); strcat(full_msg, msg);
+    write(fileno(stdout), full_msg, strlen(full_msg) * sizeof(char));
+}
+
+void clean(char* str){
+    for (int i = 0 ; i < strlen(str); ++i){
+        if (str[i] == '\n'){ str[i] = '\0'; }
     }
 }
 
@@ -49,28 +58,40 @@ int main(){
 
     } else {
 
-        printf(PARENT "Enter the name of file to write: ", getpid());
+        char* parent; int parent_pid = getpid();
+        asprintf(&parent, "[%d] PARENT. ", parent_pid);
+
+        print_t(parent, "Enter the name of file to write: ");
         char name[256];
-        fgets(name, 256, stdin); name[strlen(name) - 1] = '\0';
+        read(fileno(stdin), name, 256); clean(name);
         write(src_fd[1], &name, sizeof(name));
+        bool file_error; read(err_fd[0], &file_error, sizeof(bool));
+        if (file_error){
+            close(src_fd[0]); close(src_fd[1]);
+            close(err_fd[0]); close(err_fd[1]);
+            handle_error(true, "file error\n");
+        }
 
         char str[256];
-        printf(PARENT "Enter string: ", getpid());
-        fgets(str, 256, stdin); str[strlen(str) - 1] = '\0';
-        while (strcmp(str, "quit") != 0){
+        print_t(parent, "Enter string: ");
+        while (read(fileno(stdin), str, 256) != 0){
+            clean(str);
             write(src_fd[1], &str, sizeof(str));
             bool err;
             read(err_fd[0], &err, sizeof(bool));
             if (err){
-                printf(PARENT "Error: \"%s\" is not valid.\n", getpid(), str);
+                char* err_msg;
+                asprintf(&err_msg, "Error: \"%s\" is not valid.\n", str);
+                print_t(parent, err_msg);
             }
-            printf(PARENT "Enter string: ", getpid());
-            fgets(str, 256, stdin); str[strlen(str) - 1] = '\0';
+            print_t(parent, "Enter string: ");
         }
-        write(src_fd[1], &str, sizeof(str));
+        write(src_fd[1], "_quit", sizeof(str));
 
     }
-
+    write(fileno(stdout), "\n", sizeof "\n");
+    close(src_fd[0]); close(src_fd[1]);
+    close(err_fd[0]); close(err_fd[1]);
     return 0;
 
 }
