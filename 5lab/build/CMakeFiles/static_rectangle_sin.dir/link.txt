@@ -1,0 +1,2 @@
+/usr/bin/ar qc libstatic_rectangle_sin.a CMakeFiles/static_rectangle_sin.dir/lib/rectangle_sin.c.o
+/usr/bin/ranlib libstatic_rectangle_sin.a

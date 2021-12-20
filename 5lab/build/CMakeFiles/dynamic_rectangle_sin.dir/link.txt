@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,libdynamic_rectangle_sin.so -o libdynamic_rectangle_sin.so CMakeFiles/dynamic_rectangle_sin.dir/lib/rectangle_sin.c.o  -lm 

@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,libdynamic_naive_gcf.so -o libdynamic_naive_gcf.so CMakeFiles/dynamic_naive_gcf.dir/lib/naive_gcf.c.o 

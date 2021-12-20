@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/static.dir/static.c.o -o static  libstatic_euclid_gcf.a libstatic_rectangle_sin.a -lm 

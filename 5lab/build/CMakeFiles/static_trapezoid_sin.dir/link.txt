@@ -1,0 +1,2 @@
+/usr/bin/ar qc libstatic_trapezoid_sin.a CMakeFiles/static_trapezoid_sin.dir/lib/trapezoid_sin.c.o
+/usr/bin/ranlib libstatic_trapezoid_sin.a

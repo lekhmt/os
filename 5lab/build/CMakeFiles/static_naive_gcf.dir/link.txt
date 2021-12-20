@@ -1,0 +1,2 @@
+/usr/bin/ar qc libstatic_naive_gcf.a CMakeFiles/static_naive_gcf.dir/lib/naive_gcf.c.o
+/usr/bin/ranlib libstatic_naive_gcf.a

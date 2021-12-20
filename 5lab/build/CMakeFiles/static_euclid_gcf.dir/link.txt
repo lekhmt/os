@@ -1,0 +1,2 @@
+/usr/bin/ar qc libstatic_euclid_gcf.a CMakeFiles/static_euclid_gcf.dir/lib/euclid_gcf.c.o
+/usr/bin/ranlib libstatic_euclid_gcf.a

@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,libdynamic_trapezoid_sin.so -o libdynamic_trapezoid_sin.so CMakeFiles/dynamic_trapezoid_sin.dir/lib/trapezoid_sin.c.o  -lm 

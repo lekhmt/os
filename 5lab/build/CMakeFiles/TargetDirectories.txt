@@ -1,0 +1,12 @@
+/home/matvey/labs/2os/5lab/build/CMakeFiles/static.dir
+/home/matvey/labs/2os/5lab/build/CMakeFiles/static_euclid_gcf.dir
+/home/matvey/labs/2os/5lab/build/CMakeFiles/static_naive_gcf.dir
+/home/matvey/labs/2os/5lab/build/CMakeFiles/static_rectangle_sin.dir
+/home/matvey/labs/2os/5lab/build/CMakeFiles/static_trapezoid_sin.dir
+/home/matvey/labs/2os/5lab/build/CMakeFiles/dynamic.dir
+/home/matvey/labs/2os/5lab/build/CMakeFiles/dynamic_euclid_gcf.dir
+/home/matvey/labs/2os/5lab/build/CMakeFiles/dynamic_naive_gcf.dir
+/home/matvey/labs/2os/5lab/build/CMakeFiles/dynamic_rectangle_sin.dir
+/home/matvey/labs/2os/5lab/build/CMakeFiles/dynamic_trapezoid_sin.dir
+/home/matvey/labs/2os/5lab/build/CMakeFiles/edit_cache.dir
+/home/matvey/labs/2os/5lab/build/CMakeFiles/rebuild_cache.dir
